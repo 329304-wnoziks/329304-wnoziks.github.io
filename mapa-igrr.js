@@ -5,7 +5,6 @@ attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreet
 }).addTo(map);
 
 function addPopUpBudynki(feature, layer) {
-	//console.log(feature)
 	var nazwa = "<b>" + feature.properties.nazwa_ob + "</b>";
 	var opis = feature.properties.opis;
 	var popup_content = nazwa + "<br>" + opis;
@@ -34,14 +33,9 @@ function addPopUpGastro(feature, layer) {
 }
 
 
-//function gatro_style(feature) {
-	//return {color: "#b87700"}
-//}
-
 var budynki_lyr = L.geoJSON(budynki_igrr, {onEachFeature: addPopUpBudynki}).addTo(map);
 var gastro_lyr = L.geoJSON(gastrowro, {
 	pointToLayer: function(feature, latlng) {
-		//#b87700
 		return L.circleMarker(latlng, {color: '#dd8800', fill: true})
 	},
 	onEachFeature: addPopUpGastro
